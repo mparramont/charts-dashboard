@@ -6,24 +6,36 @@
   </head>
 
   <body>
-    <header>
+    <header class='main-header'>
       <h1>Some Backbone/Google API powered charts</h1>
     </header>
 
     <div class='content'>
     </div>
 
-    <footer>
+    <footer class='main-footer'>
       by Miguel Parramon <br>
       Github: mparramont <br>
       Twitter: @mparramon
     </footer>
 
-    <!--Load the AJAX API-->
-    <!--<script src="https://www.google.com/jsapi"></script>-->
+    <script id="chart-template" type="text/template">
+      <header><%= title %> <%= cid %></header>
+      <div class="chart-contents"></div>
+    </script>
+
+    <script src="https://www.google.com/jsapi"></script>
+
     <script src="jquery-1.9.0.min.js"></script>
     <script src="lodash.js"></script>
     <script src="backbone.js"></script>
-    <script src="main.js"></script>    
+
+    <script src="app/models/chart.js"></script>
+    <script src="app/collections/list.js"></script>
+    <script src="app/views/list.js"></script>
+    <script src="app/views/chart.js"></script>
+    
+    <script src="main.js"></script>
+
   </body>
 </html>
