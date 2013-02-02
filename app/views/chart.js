@@ -31,7 +31,7 @@ var ChartView = Backbone.View.extend({
     ]);
 
     var chart = new google.visualization.PieChart(this.$el.find('.chart-contents').get(0));
-    chart.draw(data);
+    chart.draw(data, {width: 476, height: 330});
 
     return this;
   },
