@@ -7,5 +7,9 @@ google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(init);
 
 function init(){
-  new AppView(); //render main app view to start the app
+  app = new AppView(); //render main app view to start the app
+
+  // init routing
+  app.ChartsRouter = new Workspace();
+  Backbone.history.start();
 }

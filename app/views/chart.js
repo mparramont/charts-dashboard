@@ -8,7 +8,9 @@ var ChartView = Backbone.View.extend({
   },    
   
   initialize: function(){
-    _.bindAll(this, 'render', 'unrender', 'remove');
+    _.bindAll(this, 'render', 'unrender', 'remove', 'toggleVisible');
+
+    this.listenTo(this.model, 'visible', this.toggleVisible);
 
     this.model.bind('change', this.render);
     this.model.bind('remove', this.unrender);
@@ -34,5 +36,14 @@ var ChartView = Backbone.View.extend({
   
   remove: function(){
     this.model.destroy();
+  },
+
+  toggleVisible: function() {
+    var hidden = 
+      app.filter != 'AllChart' && 
+      this.model.get('type') != app.filter;
+    console.log(hidden);
+    this.$el.toggleClass('hidden', hidden);
   }
+
 });

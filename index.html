@@ -12,10 +12,19 @@
     </header>
 
     <div class='content'>
+      <div class='filters'>
+        Show:
+        <ul></ul>
+      </div>
+
+      <div class= 'new-chart'>
+        <select id='type'></select>
+        <input id='title' placeholder='Title'></input>        
+        <button id='add'>Add another chart</button>
+      </div>
+
       <div class='charts'></div>
-      <input id='title' placeholder='Title'></input>
-      <select id='type'></select>
-      <button id='add'>Add another chart</button>      
+
     </div>
 
     <footer class='main-footer'>
@@ -36,6 +45,12 @@
       <option value=<%= value %>><%= text %></option>
     </script>
 
+    <script id="filter-template" type="text/template">
+      <li>
+        <a href=<%= '#/' + link %>><%= text %></a>
+      </li>
+    </script>
+
 
     <script src="https://www.google.com/jsapi"></script>
 
@@ -47,6 +62,7 @@
     <script src="app/collections/charts.js"></script>
     <script src="app/views/app.js"></script>
     <script src="app/views/chart.js"></script>
+    <script src="app/routers/router.js"></script>
 
     <script src="main.js"></script>
 

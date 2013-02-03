@@ -5,8 +5,9 @@
 }
 
 .box{
-	border: 2px solid black;
+	border: 1px solid black;
 	margin: 2px;
+	border-radius: 2px;
 	background-color: @nice-gray;
 }
 
@@ -14,6 +15,13 @@
 	width: 100%;
 	height: 80px;
   .box;
+}
+
+.main-footer{
+	 position:fixed;
+   left:0px;
+   bottom:0px;
+   margin-bottom: 0;
 }
 
 .chart{
@@ -28,4 +36,35 @@ span.delete{
 	text-decoration: underline;
 	float: right;
 	margin-right: 5px;
+}
+
+.selected{
+	font-weight: bold;
+}
+
+.hidden{
+	display: none;
+}
+
+.filters{
+	width: 50%;
+  margin: 0px auto;
+	ul, li{
+		display: inline-block;
+	}
+
+	ul{
+		padding: 0;
+	}
+
+	a{
+		margin: 0 10px;
+		color: blue;
+	}
+
+}
+
+.new-chart{
+	width: 400px;
+	.box;
 }
