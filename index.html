@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="stylesheet/less" type="text/css" href="main.less" />
@@ -11,6 +12,10 @@
     </header>
 
     <div class='content'>
+      <div class='charts'></div>
+      <input id='title' placeholder='Title'></input>
+      <select id='type'></select>
+      <button id='add'>Add another chart</button>      
     </div>
 
     <footer class='main-footer'>
@@ -20,9 +25,17 @@
     </footer>
 
     <script id="chart-template" type="text/template">
-      <header><%= title %></header>
+      <header>
+        <%= title %>
+        <span class='delete'>remove</span>
+      </header>
       <div class="chart-contents"></div>
     </script>
+
+    <script id="type-template" type="text/template">
+      <option value=<%= value %>><%= text %></option>
+    </script>
+
 
     <script src="https://www.google.com/jsapi"></script>
 

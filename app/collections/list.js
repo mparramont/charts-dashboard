@@ -1,3 +1,4 @@
 var List = Backbone.Collection.extend({
-  model: Chart
+  model: Chart,
+  types: ['AreaChart', 'BarChart', 'ColumnChart', 'LineChart']
 });

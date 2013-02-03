@@ -5,6 +5,7 @@ Backbone.sync = function(method, model, success, error){
 
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(init);
+
 function init(){
   listView = new ListView();
 }
