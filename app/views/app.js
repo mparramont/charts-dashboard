@@ -1,4 +1,4 @@
-var ListView = Backbone.View.extend({
+var AppView = Backbone.View.extend({
   el: '.content',
 
   type_template: _.template($('#type-template').html()),
@@ -17,7 +17,7 @@ var ListView = Backbone.View.extend({
     var chart2 = new Chart({title: 'A Bar Chart', type: 'BarChart'});
     var chart3 = new Chart({title: 'A Line Chart', type: 'LineChart'});
 
-    this.collection = new List([chart1, chart2, chart3]);
+    this.collection = new Charts([chart1, chart2, chart3]);
     this.collection.bind('add', this.appendChart);
 
     this.render();
@@ -47,7 +47,7 @@ var ListView = Backbone.View.extend({
       type: this.$type_input.val()
     });
     this.collection.add(chart);
-    
+
     this.$title_input.val(''); //reset input
   },
 
