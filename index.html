@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet/less" type="text/css" href="main.less" />
-    <script src="less-1.3.3.min.js"></script>
+    <link rel='stylesheet/less' type='text/css' href='css/main.less' />
+    <script src='js/lib/less-1.3.3.min.js'></script>
     <title>Backbone Charts Demo</title>
   </head>
 
   <body>
     <header class='main-header'>
-      <h1>Some Backbone/Google API powered charts</h1>
+      <h1>Charts dashboard</h1>
     </header>
 
     <div class='content'>
@@ -17,9 +17,9 @@
         <ul></ul>
       </div>
 
-      <div class= 'new-chart'>
+      <div class='new-chart'>
         <select id='type'></select>
-        <input id='title' placeholder='Title'></input>        
+        <input id='title' placeholder='Title'></input>
         <button id='add'>Add another chart</button>
       </div>
 
@@ -33,38 +33,48 @@
       Twitter: @mparramon
     </footer>
 
-    <script id="chart-template" type="text/template">
+    <script id='chart-template' type='text/template'>
       <header>
         <%= title %>
-        <span class='delete'>remove</span>
       </header>
-      <div class="chart-contents"></div>
+      <div class='view-chart'>
+        <div class='chart-contents'></div>
+        <span class='delete'>remove chart</span>
+        <span class='edit'>edit chart</span>
+      </div>
+      <div class='edit-chart hidden'>
+        <div class='edit-contents'>
+          <div>Edit chart:</div>
+        </div>
+        <span class='done'>done</span>
+      </div>
     </script>
 
-    <script id="type-template" type="text/template">
+    <script id='type-template' type='text/template'>
       <option value=<%= value %>><%= text %></option>
     </script>
 
-    <script id="filter-template" type="text/template">
+    <script id='filter-template' type='text/template'>
       <li>
         <a href=<%= '#/' + link %>><%= text %></a>
       </li>
     </script>
 
 
-    <script src="https://www.google.com/jsapi"></script>
+    <script src='https://www.google.com/jsapi'></script>
 
-    <script src="jquery-1.9.0.min.js"></script>
-    <script src="lodash.js"></script>
-    <script src="backbone.js"></script>
+    <script src='js/lib/jquery-1.9.0.min.js'></script>
+    <script src="js/lib/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src='js/lib/lodash.min.js'></script>
+    <script src='js/lib/backbone-min.js'></script>
 
-    <script src="app/models/chart.js"></script>
-    <script src="app/collections/charts.js"></script>
-    <script src="app/views/app.js"></script>
-    <script src="app/views/chart.js"></script>
-    <script src="app/routers/router.js"></script>
+    <script src='js/models/chart.js'></script>
+    <script src='js/collections/charts.js'></script>
+    <script src='js/views/app.js'></script>
+    <script src='js/views/chart.js'></script>
+    <script src='js/routers/router.js'></script>
 
-    <script src="main.js"></script>
+    <script src='js/main.js'></script>
 
   </body>
 </html>

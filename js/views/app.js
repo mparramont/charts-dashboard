@@ -13,12 +13,13 @@ var AppView = Backbone.View.extend({
 
     this.$title_input = this.$('#title');
     this.$type_input = this.$('#type');
-    
+
     var chart1 = new Chart({title: 'An Area Chart', type: 'AreaChart'});
     var chart2 = new Chart({title: 'A Bar Chart', type: 'BarChart'});
-    var chart3 = new Chart({title: 'A Line Chart', type: 'LineChart'});
+    var chart3 = new Chart({title: 'A Column Chart', type: 'ColumnChart'});
+    var chart4 = new Chart({title: 'A Line Chart', type: 'LineChart'});
 
-    this.collection = new Charts([chart1, chart2, chart3]);
+    this.collection = new Charts([chart1, chart2, chart3, chart4]);
     this.collection.bind('add', this.appendChart);
 
     this.listenTo(this.collection, 'filter', this.filterAll);
@@ -27,7 +28,7 @@ var AppView = Backbone.View.extend({
   },
 
   render: function(){
-    console.log('render');
+
     // fill type select with types from collection
     _(this.collection.types).each(function(type){
       var text = type.replace(/([A-Z]+)*([A-Z][a-z])/g,"$1 $2");//readable name
@@ -46,6 +47,10 @@ var AppView = Backbone.View.extend({
       }));
     }, this);
 
+    // bold 'All Charts' filter link
+    this.$('.filters li a[href="#/AllCharts"]').addClass('selected');
+
+
     // render charts
     _(this.collection.models).each(function(chart){
       this.appendChart(chart);
@@ -54,7 +59,7 @@ var AppView = Backbone.View.extend({
 
   addChart: function(){
     var chart = new Chart({
-      title: this.$title_input.val().trim() || null, //use default if empty
+      title: this.$title_input.val().trim() || null, // use default if empty
       type: this.$type_input.val()
     });
     this.collection.add(chart);
@@ -64,11 +69,15 @@ var AppView = Backbone.View.extend({
 
   appendChart: function(chart){
     var chartView = new ChartView({model: chart });
-    $('.charts', this.$el).append(chartView.render().el);
+    var chart_elem = chartView.render().el;
+    $('.charts', this.$el).append(chart_elem);
+
+    chart_elem.scrollIntoView(false); // scroll to chart, align to bottom
+    $(chart_elem).effect("highlight", {}, 1500); // nifty yellow highlight fx
   },
 
   filterAll: function(filter){
-
+    // bold out selected filter link
     this.$('.filters li a')
       .removeClass('selected')
       .filter('[href="#/' + ( app.filter || '' ) + 's"]')
@@ -78,7 +87,6 @@ var AppView = Backbone.View.extend({
     _(this.collection.models).each(function(chart){
       chart.trigger('visible');
     }, this);
-
   }
   
 });
