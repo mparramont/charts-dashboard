@@ -12,10 +12,13 @@
     </header>
 
     <div class='content'>
+
       <div class='filters'>
         Show:
         <ul></ul>
       </div>
+
+      <div class='charts'></div>
 
       <div class='new-chart'>
         <select id='type'></select>
@@ -23,20 +26,18 @@
         <button id='add'>Add another chart</button>
       </div>
 
-      <div class='charts'></div>
-
     </div>
 
     <footer class='main-footer'>
-      by Miguel Parramon <br>
-      Github: mparramont <br>
-      Twitter: @mparramon
+      <div class='about-us'>
+        by Miguel Parramon<br>
+        Github: <a href='https://github.com/mparramont' target='_blank'>mparramont</a><br>
+        Twitter: <a href='https://twitter.com/mparramon' target='_blank'>@mparramon</a>
+      </div>
     </footer>
 
     <script id='chart-template' type='text/template'>
-      <header>
-        <%= title %>
-      </header>
+      <span><%= title %></span>
       <div class='view-chart'>
         <div class='chart-contents'></div>
         <span class='delete'>remove chart</span>

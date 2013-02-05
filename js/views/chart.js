@@ -28,7 +28,7 @@ var ChartView = Backbone.View.extend({
     var data = this.model.get('data');
     var chart_container = this.$el.find('.chart-contents').get(0);
     var chart = new google.visualization[type](chart_container);
-    chart.draw(data, {width: 396, height: 260});
+    chart.draw(data, {width: 400, height: 254});
 
     return this;
   },
