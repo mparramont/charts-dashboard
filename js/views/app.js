@@ -5,7 +5,8 @@ var AppView = Backbone.View.extend({
   filter_template: _.template($('#filter-template').html()),
 
   events: {
-    'click button#add': 'addChart'
+    'click button#add': 'addChart',
+    'keypress #title': 'createOnEnter'
   },
 
   initialize: function(){
@@ -65,6 +66,10 @@ var AppView = Backbone.View.extend({
     this.collection.add(chart);
 
     this.$title_input.val(''); //reset input
+  },
+
+  createOnEnter: function(e) {
+    if (e.which == 13) this.addChart();
   },
 
   appendChart: function(chart){
