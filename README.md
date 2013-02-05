@@ -15,7 +15,8 @@ See it at work here: [Live Demo](https://googledrive.com/host/0B7tLcr4CYsvTRVU0M
 
 ## Built with
 
-* Backbone.js
-* Lo-Dash (underscore.js alternative)
-* LESS
-* jQuery and jQuery UI
+* [Backbone.js](http://backbonejs.org/)
+* [Lo-Dash](http://lodash.com/) (underscore.js alternative)
+* [LESS CSS](http://lesscss.org/)
+* [Google Charts API](https://developers.google.com/chart/)
+* [jQuery](http://jquery.com/) and [jQuery UI](http://jqueryui.com/)
